@@ -1,0 +1,39 @@
+/* Invoice.css */
+
+/* Estilos para el contenedor principal */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  /* Estilos para los campos del formulario */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Estilos para el botón de búsqueda */
+  .btn-search {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Estilos para la tabla de detalles */
+  .table {
+    margin-top: 20px;
+  }
+  
+  /* Estilos para la fila de encabezado de la tabla */
+  .table thead {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Estilos para las filas alternas de la tabla */
+  .table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  

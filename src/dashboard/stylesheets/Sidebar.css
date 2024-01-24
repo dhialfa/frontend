@@ -1,0 +1,35 @@
+/* En Sidebar.css */
+
+#sidebar {
+  height: 100vh;
+  background-color: #343a40; /* Color de fondo del Sidebar */
+  color: white; /* Color del texto en el Sidebar */
+  padding-top: 20px;
+  border-right: 1px solid #555; /* Borde a la derecha del Sidebar */
+}
+
+#sidebar a {
+  color: white; /* Color de los enlaces en el Sidebar */
+}
+
+#sidebar a:hover {
+  background-color: #555; /* Color de fondo al pasar el ratón sobre los enlaces */
+}
+
+#page-content {
+  height: 100vh;
+  padding-top: 20px;
+}
+
+/* Estilos para el botón de alternar visibilidad */
+.toggle-btn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #343a40; /* Color de fondo del botón */
+  color: white; /* Color del texto en el botón */
+  border: 1px solid #555; /* Borde del botón */
+}
+
+.toggle-btn:hover {
+  background-color: #555; /* Color de fondo al pasar el ratón sobre el botón */
+}

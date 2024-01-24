@@ -1,0 +1,23 @@
+.navbar {
+    background-color: #60758a; /* Azul oscuro */
+    color: rgb(255, 255, 255); 
+}
+
+.brand-content {
+    display: flex;
+    align-items: center;
+  }
+  
+.brand-content h2 {
+    margin-left: 5px; 
+    color: rgb(255, 255, 255); 
+  }
+
+.session-content {
+    display: flex;
+    align-items: center;
+
+  }
+.session-content h2 {
+    margin-right: 20px; 
+  }
