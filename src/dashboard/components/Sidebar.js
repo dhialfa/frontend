@@ -1,43 +1,25 @@
+// Sidebar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Nav, Container, Row, Col } from 'react-bootstrap';
 import '../stylesheets/Sidebar.css';
 import Submenu from './Submenu';
 
-const Sidebar = () => {
+const Sidebar = ({ onSidebarClick }) => {
   return (
     <Container fluid>
       <Row>
         <Col xs={12} md={2} id="sidebar">
           <Nav className="flex-column">
-            <Nav.Link as={Link} to="/dashboard">
+            <Nav.Link>
               <Submenu/>
             </Nav.Link>
-            <Nav.Link as={Link} to="/dashboard/invoice">
+            <Nav.Link onClick={() => onSidebarClick('invoice')}>
               Facturacion
             </Nav.Link>
-            <Nav.Item>
-              <Nav.Link as={Link} to="/settings">
-                Consulta de comprobates
-              </Nav.Link>
-              <Nav.Item>
-                <Nav.Link as={Link} to="/settings/general">
-                  Notas de Credito
-                </Nav.Link>
-                <Nav.Link as={Link} to="/settings/security">
-                  NC - Financiera
-                </Nav.Link>
-                <Nav.Link as={Link} to="/settings/security">
-                  Recibos de Dinero
-                </Nav.Link>
-                <Nav.Link as={Link} to="/settings/security">
-                  Cierre de Caja
-                </Nav.Link>
-              </Nav.Item>
-            </Nav.Item>
-            <Nav.Link as={Link} to="/stats">
-              Estadísticas
+            <Nav.Link onClick={() => onSidebarClick('otro')}>
+              Otro Componente
             </Nav.Link>
+            {/* Agrega más enlaces según sea necesario */}
           </Nav>
         </Col>
       </Row>
@@ -46,3 +28,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+

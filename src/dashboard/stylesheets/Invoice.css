@@ -36,4 +36,37 @@
   .table tbody tr:nth-child(even) {
     background-color: #f2f2f2;
   }
-  
+  /* Invoice.css */
+
+/* Establece el ancho para cada columna */
+.column-codigo {
+  width: 10%;
+}
+
+.column-cantidad {
+  width: 5%;
+}
+
+.column-articulo {
+  width: 25%;
+}
+
+.column-descuento {
+  width: 4%;
+}
+
+.column-precio {
+  width: 10%;
+}
+
+.column-total {
+  width: 10%;
+}
+
+.column-iva {
+  width: 10%;
+}
+
+.column-acciones {
+  width: 15%;
+}

@@ -1,16 +1,20 @@
 // Invoice.js
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Table, Button } from 'react-bootstrap';
 import '../stylesheets/Invoice.css'; // Importa el archivo CSS
+import { getAllClient } from '../../api/client.api';
 
 const Invoice = () => {
-  const [cliente, setCliente] = useState({
-    cedula: '',
-    nombre: '',
-    email: '',
-    telefono: ''
-  });
+  const [cliente, setClient] = useState([]);
+
+  useEffect(() => {
+    async function loadClient() {
+      const res = await getAllClient();
+      setClient(res.data);
+    }
+    loadClient();
+  }, []);
 
   const [tipoFactura, setTipoFactura] = useState('');
 
@@ -26,19 +30,26 @@ const Invoice = () => {
     }
   ]);
 
-  const handleBuscarCliente = () => {
-    // Lógica para buscar el cliente y actualizar el estado
-    // Puedes implementar esta lógica según tus necesidades
-  };
-
   const handleTipoFacturaChange = (event) => {
     setTipoFactura(event.target.value);
   };
 
   const handleDetallesChange = (index, field, value) => {
-    // Actualiza el estado de detalles según el cambio
-    // Puedes implementar esta lógica según tus necesidades
+    const newDetalles = [...detalles];
+    newDetalles[index] = { ...newDetalles[index], [field]: value };
+    setDetalles(newDetalles);
   };
+
+  const handleAgregarLinea = () => {
+    setDetalles([...detalles, { codigo: '', cantidad: 0, articulo: '', descuento: 0, precio: 0, total: 0, ivaExonerado: false }]);
+  };
+  
+  const handleEliminarLinea = (index) => {
+    const newDetalles = [...detalles];
+    newDetalles.splice(index, 1);
+    setDetalles(newDetalles);
+  };
+
 
   return (
     <div className="container">
@@ -47,17 +58,18 @@ const Invoice = () => {
         <Form.Group controlId="formCedula" className="form-group">
           <Form.Label>Cédula del Cliente</Form.Label>
           <Form.Control
+            className="''"
             type="text"
             placeholder="Ingrese la cédula"
             value={cliente.cedula}
-            onChange={(e) => setCliente({ ...cliente, cedula: e.target.value })}
+            onChange={(e) => setClient({ ...cliente, cedula: e.target.value })}
           />
           <Form.Text className="text-muted">
             {/* Puedes mostrar mensajes de ayuda o validación aquí */}
           </Form.Text>
         </Form.Group>
 
-        <Button variant="primary" className="btn-search" onClick={handleBuscarCliente}>
+        <Button variant="primary" className="btn-search" >
           Buscar Cliente
         </Button>
       </Form>
@@ -82,13 +94,14 @@ const Invoice = () => {
       <Table striped bordered hover className="table">
         <thead>
           <tr>
-            <th>Código</th>
-            <th>Cantidad</th>
-            <th>Artículo</th>
-            <th>Descuento</th>
-            <th>Precio</th>
-            <th>Total</th>
-            <th>IVA Exonerado</th>
+            <th className="column-codigo">Código</th>
+            <th className="column-cantidad">Cantidad</th>
+            <th className="column-articulo">Artículo</th>
+            <th className="column-descuento">Descuento</th>
+            <th className="column-precio">Precio</th>
+            <th className="column-total">Total</th>
+            <th className="column-iva">IVA Exonerado</th>
+            <th className="column-acciones">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -108,13 +121,56 @@ const Invoice = () => {
                   onChange={(e) => handleDetallesChange(index, 'cantidad', e.target.value)}
                 />
               </td>
-              {/* Agrega más columnas según sea necesario */}
+              <td>
+                <Form.Control
+                  type="text"
+                  value={detalle.articulo}
+                  onChange={(e) => handleDetallesChange(index, 'articulo', e.target.value)}
+                />
+              </td>
+              <td>
+                <Form.Control
+                  type="number"
+                  value={detalle.descuento}
+                  onChange={(e) => handleDetallesChange(index, 'descuento', e.target.value)}
+                />
+              </td>
+              <td>
+                <Form.Control
+                  type="number"
+                  value={detalle.precio}
+                  onChange={(e) => handleDetallesChange(index, 'precio', e.target.value)}
+                />
+              </td>
+              <td>
+                <Form.Control
+                  type="number"
+                  value={detalle.total}
+                  onChange={(e) => handleDetallesChange(index, 'total', e.target.value)}
+                />
+              </td>
+              <td>
+                <Form.Control
+                  type="number"
+                  value={detalle.ivaExonerado}
+                  onChange={(e) => handleDetallesChange(index, 'ivaExonerado', e.target.value)}
+                />
+              </td>
+              <td>
+                <Button variant="danger" onClick={() => handleEliminarLinea(index)}>
+                  Eliminar
+                </Button>
+              </td>
             </tr>
           ))}
         </tbody>
       </Table>
+
+      {/* Botón para agregar una nueva línea */}
+      <Button variant="success" onClick={handleAgregarLinea}>+ Agregar Línea</Button>
     </div>
   );
 };
 
 export default Invoice;
+
