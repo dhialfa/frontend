@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; 
 import '../stylesheets/NavigationBar.css'
-import Logo from '../../utils/Logo';
+import Logo from '../../../utils/Logo';
 
 const NavigationBar = () => {
   return (

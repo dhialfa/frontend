@@ -3,10 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Table, Button } from 'react-bootstrap';
 import '../stylesheets/Invoice.css'; // Importa el archivo CSS
-import { getAllClient } from '../../api/client.api';
+import { getAllClient } from '../../../api/client.api';
+import ModalSearchClient from './ModalSearchClient';
 
 const Invoice = () => {
-  const [cliente, setClient] = useState([]);
+  const [client, setClient] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     async function loadClient() {
@@ -50,30 +52,23 @@ const Invoice = () => {
     setDetalles(newDetalles);
   };
 
+  const handleBuscarCliente = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <div className="container">
       {/* Sección de búsqueda del cliente */}
       <Form>
-        <Form.Group controlId="formCedula" className="form-group">
-          <Form.Label>Cédula del Cliente</Form.Label>
-          <Form.Control
-            className="''"
-            type="text"
-            placeholder="Ingrese la cédula"
-            value={cliente.cedula}
-            onChange={(e) => setClient({ ...cliente, cedula: e.target.value })}
-          />
-          <Form.Text className="text-muted">
-            {/* Puedes mostrar mensajes de ayuda o validación aquí */}
-          </Form.Text>
-        </Form.Group>
-
-        <Button variant="primary" className="btn-search" >
+        <Button variant="primary" className="btn-search" onClick={() => handleBuscarCliente()}>
           Buscar Cliente
         </Button>
       </Form>
-
+      <ModalSearchClient show={showModal} handleClose={handleCloseModal} clients={client} />
       {/* Sección del tipo de factura */}
       <Form>
         <Form.Group controlId="formTipoFactura" className="form-group">

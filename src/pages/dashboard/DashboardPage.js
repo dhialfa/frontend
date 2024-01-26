@@ -4,6 +4,7 @@ import NavigationBar from "./components/NavigationBar";
 import Sidebar from "./components/Sidebar";
 import Invoice from "./components/Invoice";
 import { Container, Row, Col } from 'react-bootstrap';
+import Client from './components/Client';
 
 const DashboardPage = () => {
   const [currentComponent, setCurrentComponent] = useState(null);
@@ -12,7 +13,8 @@ const DashboardPage = () => {
     switch (component) {
       case 'invoice':
         return <Invoice />;
-      
+      case 'clients':
+          return <Client />;
       default:
         return null;
     }

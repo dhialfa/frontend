@@ -16,8 +16,8 @@ const Sidebar = ({ onSidebarClick }) => {
             <Nav.Link onClick={() => onSidebarClick('invoice')}>
               Facturacion
             </Nav.Link>
-            <Nav.Link onClick={() => onSidebarClick('otro')}>
-              Otro Componente
+            <Nav.Link onClick={() => onSidebarClick('clients')}>
+              Clientes
             </Nav.Link>
             {/* Agrega más enlaces según sea necesario */}
           </Nav>

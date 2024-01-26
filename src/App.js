@@ -1,8 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import NotFound from './notFoundPage/notFoundPage';
-import LoginPage from './loginPage/LoginPage';
-import DashboardPage from './dashboard/DashboardPage';
-import Invoice from './dashboard/components/Invoice';
+import NotFound from './pages/notFoundPage/notFoundPage';
+import LoginPage from './pages/loginPage/LoginPage';
+import DashboardPage from './pages/dashboard/DashboardPage';
 
 function App() {
   return (
@@ -10,8 +9,7 @@ function App() {
         <Routes>
           <Route path='/' element={ <LoginPage/> } />
           <Route path='/dashboard' element={ <DashboardPage/> } />
-          <Route path='/dashboard/invoice' element={ <Invoice/> } />
-          <Route path='/' element={ <NotFound/> } />
+          <Route path='*' element={ <NotFound/> } />
         </Routes>
       </BrowserRouter>  
   );

@@ -1,0 +1,62 @@
+/* ClientList.css */
+
+.container {
+    padding: 20px;
+  }
+  
+  /* Search bar styling */
+  .mb-3 {
+    margin-bottom: 15px;
+  }
+  
+  /* Table styling */
+  table {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* Modal styling */
+  .modal-body {
+    padding: 20px;
+  }
+  
+  /* Optional: Style form fields within the modal */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Optional: Style modal footer */
+  .modal-footer {
+    padding: 15px 20px;
+  }
+  
+.column-codigo {
+    width: 10%;
+  }
+  
+  .column-nombre {
+    width: 20%;
+  }
+  
+  .column-email {
+    width: 15%;
+  }
+  
+  .column-telefono {
+    width: 15%;
+  }
+  
+  .column-direccion {
+    width: 20%;
+  }
+  
+  .column-cedula {
+    width: 10%;
+  }
+  
+  .column-activo {
+    width: 10%;
+  }
+  
+  /* Add more styles for other columns as needed */
+  
