@@ -19,7 +19,7 @@ const Client = () => {
       const res = await getAllClient();
       setClients(res.data);
     } catch (error) {
-      console.error('Error al cargar clientes:', error);
+      alert('Error al cargar clientes:', error);
     }
   };
 

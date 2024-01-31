@@ -1,0 +1,11 @@
+
+.horizontal-fields-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+  }
+
+  .horizontal-fields-container Form.Control {
+    margin-left: 30px; /* Ajusta según sea necesario */
+  }
