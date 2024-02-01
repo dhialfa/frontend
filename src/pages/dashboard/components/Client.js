@@ -4,6 +4,7 @@ import { Table, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { getAllClient } from '../../../api/client.api'; 
 import EditClient from './EditClient';
 import CreateClientModal from './CreateClientModal';
+import '../stylesheets/Clients.css'
 
 const Client = () => {
 

@@ -4,7 +4,7 @@ const URL = "http://localhost:8000";
 
 console.log(URL);
 const ClientApi = axios.create({
-  baseURL: `${URL}/backend/cliente/`,
+  baseURL: `${URL}/backend/cliente/cliente`,
 });
 
 export const getAllClient = () => ClientApi.get("/");

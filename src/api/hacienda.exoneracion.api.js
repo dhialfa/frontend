@@ -6,4 +6,4 @@ const ExonerApi = axios.create({
   baseURL: URL,
 });
 
-export const getExoner = (documento) => ExonerApi.get(`?autorizacion=${documento}`);
+export const getExonet = (documento) => ExonerApi.get(`?autorizacion=${documento}`);
